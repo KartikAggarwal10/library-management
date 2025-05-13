@@ -120,29 +120,20 @@
         <h3>want to register? <a href="signup.html"> click here</a></h3>
     </div>
     <script>
-    const users = [
-        { name: "kartik", email: "aggarwalkartik956@gmail.com", password: "k456", role: "user" },
-        { name: "kartik", email: "aggarwalkartik956@gmail.com", password: "k45", role: "admin" }
-    ];
-
+      document.addEventListener("DOMContentLoaded", alert("To access user interface, enter password: user\nTo access admin interface, enter password: admin"));
     document.querySelector("form").addEventListener("submit", function(event) {
         event.preventDefault(); 
 
-        const email = document.getElementById("email").value;
-        const password = document.getElementById("password").value;
+        const password = document.getElementById("password").value.trim();
 
-        const matchedUser = users.find(user => user.email === email && user.password === password);
-
-        if (matchedUser) {
-            if (matchedUser.role === "user") {
-                window.location.href = "home.html";
-            } else {
-                window.location.href = "orderbackend.html";
-            }
+        if (password === "user") {
+            window.location.href = "home.html";
+        } else if (password === "admin") {
+            window.location.href = "orderbackend.html";
         } else {
-            alert("To access user interface fill email: aggarwalkartik956@gmail.com, password: k456 \n and to access admin interface enter email: aggarwalkartik956@gmail.com, password: k45" );
+            alert("To access user interface, enter password: user\nTo access admin interface, enter password: admin");
         }
-});
+    });
 </script>
 </body>
 </html>
